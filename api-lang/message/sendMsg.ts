@@ -5,9 +5,9 @@ export const doc = {
 };
 
 export const apiInfo = {
-  funcName: "myInfo",
+  funcName: "sendMsg",
   comment: "发送消息（私聊），未关注的用户只能发一条消息",
-};
+} as const;
 
 export const api = {
   url: "https://api.vc.bilibili.com/web_im/v1/web_im/send_msg",

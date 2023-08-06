@@ -4,9 +4,9 @@ export const doc = {
 };
 
 export const apiInfo = {
-  funcName: "myInfo",
+  funcName: "at",
   comment: "获取自己的信息",
-};
+} as const;
 
 export const api = {
   url: "https://api.bilibili.com/x/msgfeed/at",

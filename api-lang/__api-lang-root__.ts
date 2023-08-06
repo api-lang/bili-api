@@ -1,6 +1,5 @@
 import crypto from "crypto";
-import type { CookieJar } from "tough-cookie";
-import type { AxiosInstance } from "axios";
+import type { AxiosInstance, AxiosProxyConfig } from "axios";
 
 export const VERSION = "1.0.0";
 
@@ -12,18 +11,13 @@ export type BasicApi<T = unknown> = {
   ttl: 0 | 1;
 };
 
-declare module "axios" {
-  interface AxiosRequestConfig {
-    jar?: CookieJar;
-  }
-}
-
 interface Ctx {
   credential?: {
     sessdata: string;
     bili_jct: string;
     dedeuserid: string;
   };
+  proxy?: AxiosProxyConfig;
 }
 
 export const init = (credential?: Ctx["credential"]): Ctx => {
@@ -32,10 +26,11 @@ export const init = (credential?: Ctx["credential"]): Ctx => {
 
 export const interceptors = (axios: AxiosInstance, ctx: Ctx) => {
   axios.interceptors.request.use((config) => {
-    const { headers, jar: oldCookieJar } = config;
+    const { headers, jar: oldCookieJar, proxy } = config;
     const cookieJar = oldCookieJar!.cloneSync();
     const { credential } = ctx;
 
+    // headers
     if (!headers.has("user-agent")) {
       headers.set("user-agent", "Mozilla/5.0");
     }
@@ -43,8 +38,10 @@ export const interceptors = (axios: AxiosInstance, ctx: Ctx) => {
       headers.set("referer", "https://www.bilibili.com/");
     }
 
+    // responseType
     if (!config.responseType) config.responseType = "json";
 
+    // credential
     if (credential) {
       cookieJar.setCookieSync(
         `SESSDATA=${credential.sessdata}; Domain=.bilibili.com`,
@@ -59,13 +56,26 @@ export const interceptors = (axios: AxiosInstance, ctx: Ctx) => {
         "https://www.bilibili.com"
       );
     }
-
     cookieJar.setCookieSync(
       `buvid3=${crypto.randomUUID()}; Domain=.bilibili.com`,
       "https://www.bilibili.com"
     );
-
     config.jar = cookieJar;
+
+    // csrf
+    if (credential) {
+      if (headers["Content-Type"] === "application/x-www-form-urlencoded") {
+        config.data += `$csrf=${credential.bili_jct}&csrf_token=${credential.bili_jct}`;
+      } else {
+        config.data["csrf"] = credential.bili_jct;
+        config.data["csrf_token"] = credential.bili_jct;
+      }
+    }
+
+    // proxy
+    if (!proxy && ctx.proxy) {
+      config.proxy = ctx.proxy;
+    }
 
     return config;
   });
