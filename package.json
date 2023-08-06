@@ -7,7 +7,7 @@
   "files": [
     "dist/*",
     "ts/*",
-    "src/*"
+    "api-lang/*"
   ],
   "scripts": {
     "build": "api-lang gn ./api-lang --cjs=./dist --ts=./ts",

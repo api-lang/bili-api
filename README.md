@@ -34,3 +34,10 @@ import type { ApiKit } from "@api-lang/bili-api"; // contains typescript types f
   });
 })();
 ```
+
+## TODO-LIST
+
+- ApiRequestHeader 类型声明与校验
+- verify 逻辑抽离
+- 数据互通至 单独 request 的 Ctx
+- api-lang 的 check
