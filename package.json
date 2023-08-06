@@ -2,8 +2,8 @@
   "name": "bili-api",
   "version": "1.0.0",
   "description": "bilibili的api集合",
-  "main": "./dist/index.js",
-  "typings": "./dist/index.d.ts",
+  "main": "./dist/index.ts",
+  "typings": "./dist/index.ts",
   "files": [
     "dist/*",
     "src/*"
@@ -16,7 +16,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@api-lang/core": "^1.0.1",
+    "@api-lang/core": "^1.0.3",
     "@juln/type-fest": "^1.1.7",
     "@types/axios": "^0.14.0",
     "@types/node": "^20.4.8",
