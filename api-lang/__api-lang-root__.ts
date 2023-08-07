@@ -65,10 +65,24 @@ export const interceptors = (axios: AxiosInstance, ctx: Ctx) => {
     // csrf
     if (credential) {
       if (headers["Content-Type"] === "application/x-www-form-urlencoded") {
-        config.data += `$csrf=${credential.bili_jct}&csrf_token=${credential.bili_jct}`;
+        if (config.data === undefined) {
+          config.data = "";
+        }
+        if (typeof config.data === "string") {
+          config.data += `$csrf=${credential.bili_jct}&csrf_token=${credential.bili_jct}`;
+        }
       } else {
-        config.data["csrf"] = credential.bili_jct;
-        config.data["csrf_token"] = credential.bili_jct;
+        if (config.data === undefined) {
+          config.data = {};
+        }
+        if (
+          typeof config.data === "object" &&
+          config.data["csrf"] === undefined &&
+          config.data["csrf_token"] === undefined
+        ) {
+          config.data["csrf"] = credential.bili_jct;
+          config.data["csrf_token"] = credential.bili_jct;
+        }
       }
     }
 
