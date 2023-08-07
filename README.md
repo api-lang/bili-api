@@ -9,8 +9,11 @@ bili-api
 ## use
 
 ```typescript
+// typescript+esm导入
 import sdk from "@api-lang/bili-api";
 import type { ApiKit } from "@api-lang/bili-api"; // contains typescript types for all APIs
+// commonjs导入
+// const { default: sdk } = require("@api-lang/bili-api");
 
 (async () => {
   const { apiKit } = await sdk.init();
