@@ -12,10 +12,10 @@
     glob "^10.3.3"
     tsc "^2.0.4"
 
-"@api-lang/core@^1.0.18":
-  version "1.0.18"
-  resolved "https://registry.yarnpkg.com/@api-lang/core/-/core-1.0.18.tgz#c767fc882332d4ce4e392bc005e5e30d5e4af651"
-  integrity sha512-B0kMqPfARwVGpPSOz2aRBJk78PoMUnRyu0yjJxLWW1+NRjjIgmStiqidPskDbUi7CfzQxkuI5zV2V00EhunX7g==
+"@api-lang/core@^1.0.19":
+  version "1.0.19"
+  resolved "https://registry.yarnpkg.com/@api-lang/core/-/core-1.0.19.tgz#df6fb35af9b21eb9cba3ecab9747902b98ea8087"
+  integrity sha512-ciRy4HAuNXK/Puzp0nIYHODyaeMQsMp3ZKg0yn8jolxCk6i/BIORmy+pltgIUDE94maw5AF6s8f4JvRjTvEwOw==
   dependencies:
     "@api-lang/core" "^1.0.12"
     "@juln/type-fest" "^1.1.7"
