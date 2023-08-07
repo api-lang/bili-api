@@ -93,5 +93,8 @@ export const interceptors = (axios: AxiosInstance, ctx: Ctx) => {
 
     return config;
   });
+  axios.interceptors.response.use((response) => {
+    return response.data;
+  });
   return axios;
 };
