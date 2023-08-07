@@ -1,6 +1,6 @@
 {
   "name": "@api-lang/bili-api",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "bilibili的api集合(基于api-lang编写)",
   "main": "./dist/index.js",
   "module": "./es/index.ts",
@@ -38,6 +38,6 @@
     "typescript": "^4.7.4"
   },
   "dependencies": {
-    "@api-lang/core": "^1.0.19"
+    "@api-lang/core": "^1.0.20"
   }
 }
