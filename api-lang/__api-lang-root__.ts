@@ -1,5 +1,6 @@
 import crypto from "crypto";
 import type { AxiosInstance, AxiosProxyConfig } from "axios";
+import "axios-cookiejar-support/dist/index.d.ts";
 
 export const VERSION = "202301";
 
@@ -11,7 +12,7 @@ export type BasicApi<T = unknown> = {
   ttl: 0 | 1;
 };
 
-interface Ctx {
+export interface Ctx {
   credential?: {
     sessdata: string;
     bili_jct: string;
@@ -19,10 +20,6 @@ interface Ctx {
   };
   proxy?: AxiosProxyConfig;
 }
-
-export const init = (credential?: Ctx["credential"]): Ctx => {
-  return { credential };
-};
 
 export const interceptors = (axios: AxiosInstance, ctx: Ctx) => {
   axios.interceptors.request.use((config) => {
