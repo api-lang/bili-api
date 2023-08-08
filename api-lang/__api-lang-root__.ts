@@ -1,3 +1,4 @@
+///<reference path="../node_modules/axios-cookiejar-support/dist/index.d.ts" />
 import crypto from "crypto";
 import type { AxiosInstance, AxiosProxyConfig } from "axios";
 
@@ -11,7 +12,7 @@ export type BasicApi<T = unknown> = {
   ttl: 0 | 1;
 };
 
-export interface Ctx {
+interface Ctx {
   credential?: {
     sessdata: string;
     bili_jct: string;
@@ -20,7 +21,7 @@ export interface Ctx {
   proxy?: AxiosProxyConfig;
 }
 
-export const interceptors = (axios: AxiosInstance, ctx: Ctx) => {
+export const init = (axios: AxiosInstance, ctx: Ctx) => {
   axios.interceptors.request.use((config) => {
     const { headers, jar: oldCookieJar, proxy } = config;
     const cookieJar = oldCookieJar!.cloneSync();
