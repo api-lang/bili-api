@@ -1,10 +1,20 @@
 # @api-lang/bili-api
 
-bili-api
+bilibili-api 集合 的 sdk
+
+## 如何参与开源
+
+本 sdk 基于 `api-lang` 框架编写, `api-lang` 是能更高效、更便捷的维护各大 api-sdk 的框架
+
+关于 `api-lang` 文档的编写请看: [doc](https://github.com/api-lang/api-lang/blob/master/API_LANG_DOC.md)
+
+如果你是小白, 关于 `api-lang` 框架请看: [doc](https://github.com/api-lang/api-lang/blob/master/API_LANG_DOC.md)
+
+本地开发: `npm run dev` or `yarn dev`; 修改 api-lang 目录后, 会实时打包到 dist 和 es 目录下
 
 ## install
 
-`npm i @api-lang/bili-api`
+`npm i @api-lang/bili-api -S` or `yarn add @api-lang/bili-api -S`
 
 ## use
 
@@ -37,25 +47,3 @@ import type { ApiKit } from "@api-lang/bili-api"; // contains typescript types f
   });
 })();
 ```
-
-## TODO-LIST
-
-### 心法
-
-- 心法的分享，提前攒热度，让更多人参与开源
-- 为什么选择 typescript
-
-### 完善用法和边界
-
-- ApiRequestHeader 类型声明与校验
-- verify 逻辑抽离
-- 数据互通至 单独 request 的 Ctx
-- 解决目前只支持固定目录结构的问题
-- 除了 b 站，多接入几个平台，看看哪些地方没考虑到，尽量做到更通用
-
-### 辅助功能
-
-- api-lang to readme (提供转化为 readme 的功能，主要是为了得到社区的帮助)
-- api-lang 的 check
-- yapi to api-lang
-- ...

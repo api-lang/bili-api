@@ -1,6 +1,6 @@
 {
   "name": "@api-lang/bili-api",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "bilibili的api集合(基于api-lang编写)",
   "main": "./dist/index.js",
   "module": "./es/index.ts",
@@ -11,7 +11,8 @@
     "api-lang/*"
   ],
   "scripts": {
-    "build": "api-lang gn ./api-lang --cjs=./dist --es=./es",
+    "dev": "npm run build && chokidar ./api-lang -c 'npm run build'",
+    "build": "api-lang build ./api-lang --cjs=./dist --es=./es",
     "prepublishOnly": "npm run build"
   },
   "publishConfig": {
@@ -34,10 +35,12 @@
   },
   "homepage": "https://github.com/api-lang/bili-api#readme",
   "devDependencies": {
+    "@api-lang/core": "^1.0.23",
     "@types/node": "^20.4.8",
-    "typescript": "^4.7.4"
+    "chokidar-cli": "^3.0.0",
+    "typescript": "^5.1.6"
   },
   "dependencies": {
-    "@api-lang/core": "^1.0.20"
+    "@api-lang/api-utils": "^1.0.0"
   }
 }
