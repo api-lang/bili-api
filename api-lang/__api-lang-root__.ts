@@ -1,6 +1,5 @@
 import crypto from "crypto";
 import type { AxiosInstance, AxiosProxyConfig } from "axios";
-import "axios-cookiejar-support/dist/index.d.ts";
 
 export const VERSION = "202301";
 
