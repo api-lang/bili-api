@@ -27,10 +27,10 @@
     glob "^10.3.3"
     tsc "^2.0.4"
 
-"@api-lang/core@^1.0.23":
-  version "1.0.23"
-  resolved "https://registry.yarnpkg.com/@api-lang/core/-/core-1.0.23.tgz#7e4c03479500f2a61bc95e0ad4650404bec98a86"
-  integrity sha512-FRCmmZz+4iXH2rAper3qYEyDzy/9OSbxB+StBF5TwaeN8o7JBD1ViVSzuLKhXUeYjldJX6JQ0Jg5DsDckYB3AA==
+"@api-lang/core@^1.0.27":
+  version "1.0.27"
+  resolved "https://registry.yarnpkg.com/@api-lang/core/-/core-1.0.27.tgz#8ecdb295128c8794c3625dc2a5500d0eb12093f7"
+  integrity sha512-D025f8dBhtMCvmggWdLgnTRpB6oPiw08Z7egflU9f9fk3RWNWeMADID/lkXaCXhl2IR0A3bDDZYRGjAAzOtK9A==
   dependencies:
     "@api-lang/core" "^1.0.12"
     "@juln/type-fest" "^1.1.7"

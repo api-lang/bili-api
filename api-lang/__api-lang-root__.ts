@@ -1,7 +1,7 @@
 import crypto from "crypto";
 import type { AxiosInstance, AxiosProxyConfig } from "axios";
 
-export const VERSION = "1.0.0";
+export const VERSION = "202301";
 
 export type BasicApi<T = unknown> = {
   /** 0为成功 */

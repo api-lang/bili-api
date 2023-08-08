@@ -25,6 +25,8 @@ import type { ApiKit } from "@api-lang/bili-api"; // contains typescript types f
 // commonjs导入
 // const { default: sdk } = require("@api-lang/bili-api");
 
+console.log('apiKit version: ', sdk.VERSION);
+
 (async () => {
   const { apiKit } = await sdk.init();
   // 完全支持ts类型, 可以不需要看文档: ide会提示你有哪些api, 且api需要填哪些参数, 返回的数据是什么
